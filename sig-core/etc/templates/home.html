@@ -1,0 +1,48 @@
+  {% extends 'base.html' %}
+
+
+
+    {% block content %}
+    {% csrf_token %}
+  <div class="div1">
+        <div id="main">
+            <div id="main_lefSide">
+                <div id="m_l_s_m">
+                    <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Nombre de projets</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Secondary card title</h5>
+                        </div>
+                    </div>
+
+                    <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Nombre de projets realisés </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Secondary card title</h5>
+                        </div>
+                    </div>
+
+                    <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Nombre de projets en cours de realisation</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Secondary card title</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="main_rightSide">
+                <div id="m_r_s_m">
+
+                        <div id="getstarted" style="" >
+                            <div class="center">
+                                <a href="something" class="button2">Button</a>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+  </div>
+
+
+    {% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content-container">
+
+  <form action="." method="Post">
+    {% csrf_token %}
+    <h1> voulez vous supprimer le projet : "{{ projet }}" ?</h1>
+    <p><input type="submit" value="Yes">&nbsp;&nbsp;<a href="{% url 'projet:home' %}">Cancel</a></p>
+
+  </form>
+</div>
+
+
+{% endblock %}

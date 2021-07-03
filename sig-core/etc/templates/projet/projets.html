@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="content-container">
+	<table class="table table-responsives">
+		{% if is_paginated %}
+		<tr class="table-info"><td>
+			{% if page_obj.has_previous %}
+			<a href="?page={{ page_obj.previous_page_number }}" class="pager-prev{% if not page_obj.has_previous %} inactive{% endif %}">&laquo; Previous </a>
+			{% endif %}
+			</td>
+			<td></td>
+			<td></td>
+			<td>
+			{% if page_obj.has_next %}
+				<a href="?page={{ page_obj.next_page_number }}" class="pager-next{% if not page_obj.has_next %} inactive{% endif %}">Next &raquo;</a>
+			{% endif %}
+			</td>
+		</tr>
+		{% endif %}
+		<thead class="thead-dark" >
+			<tr bgcolor= "black" style="color:#9E9795;">
+				<th>Projet</th>
+				<th>Commune</th>
+				<th>Secteur</th>
+				<th>User</th>
+				<th>id projet</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for projet in projet_list %}
+			<tr>
+				<td><a href="{% url 'projet:update-projet' pk=projet.pk %}">{{ projet.intitule }}</a></td>
+				<td>
+					{% for commune in projet.communes.all %}
+					{{ commune.nom }},
+					{% endfor %}
+				</td>
+				<td>{{ projet.secteur.nom }} </td>
+				<td>{{ projet.user }}</td>
+				<td> {{ projet.pk }}</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<div class="div1">
+    <div class="content-section" >
+        <legend class="border-bottom mb-4">Profile Info</legend>
+            {% for message in messages %}
+                <div class="alert alert-success justify-content-center" role="alert" >
+                            <center>
+                                <p style="color:green;">{{ message }}</p>
+                            </center>
+                </div>
+            {% endfor %}
+            <form method="POST" enctype="multipart/form-data" style="width:100%;">
+                {% csrf_token %}
+
+                    <div class="row" style=" width:90%; ">
+                        <div class="col-6" style="height:500px; background-color:red;">
+                            <img class="rounded-circle mx-auto d-block" src="{{ user.profile.image.url }}" style="margin:auto;">
+                            <br>
+                            <center>
+                            {{ p_form|crispy }}
+                                </center>
+                        </div>
+
+                        <div class="col-6" >
+                            {{ u_form.username.label }}
+                            {{ u_form.username }}
+                            <br><br>
+                            {{ u_form.email.label }}
+                            {{ u_form.email }}
+                            <br>
+                            <a href="{% url 'password-reset' %}" class="txt2 bo1 m-l-5">	change password </a>
+                            <div class="form-group">
+                                <button class="btn btn-outline-info" type="submit">Update</button>
+                            </div>
+                        </div>
+                    </div>
+            </form>
+
+    </div>
+</div>
+
+
+
+{% endblock content %}
