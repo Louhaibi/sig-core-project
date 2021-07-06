@@ -12,7 +12,8 @@ from account.decorators import *
 #@allowed_users(allowed_roles=['admin'])
 def home(request):
     context = {}
-    return render(request, 'home.html', context)
+    return render(request, 'site/home.html', context)
+
 
 
 
@@ -22,7 +23,7 @@ class AddProjet(CreateView):
     template_name = "projet/create_projet.html"
     success_url = "/projet/"
 
-    @login_required(login_url='/')
+
     def form_valid(self, form):
         self.object = form.save()
         self.object.user = self.request.user
@@ -36,7 +37,7 @@ class projet_list_view(ListView):
     model = Projet
     paginate_by = 100
 
-    @login_required(login_url='/')
+
     def get_queryset(self):
         return Projet.objects.filter(user=self.request.user) #to display infos based on users
 

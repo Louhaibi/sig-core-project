@@ -1,48 +1,47 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %} Profile {% endblock %}
+
+
 {% block content %}
+<html>
+<head>
 
+	<link rel="stylesheet" type="text/css" href="{% static 'profile/style.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+</head>
+<body>
+	<form method="POST">
+		{% for message in messages %}
+					<center>
+						<p style="color:red">{{ message }}</p>
+					</center>
+				{% endfor %}
+		{% csrf_token %}	
+		<div class="container">
+			<div class="contact-box">
+				<div class="left">
+					<img class="rounded-circle mx-auto d-block" src="{{ user.profile.image.url }}" style="margin:auto; height:200px;">
+					<br>
+                    <center>
+                    {{ p_form.as_p }}
+                    </center>
+				</div>
+				<div class="right">
+					<h2>Informations personnelles</h2>
 
-<div class="div1">
-    <div class="content-section" >
-        <legend class="border-bottom mb-4">Profile Info</legend>
-            {% for message in messages %}
-                <div class="alert alert-success justify-content-center" role="alert" >
-                            <center>
-                                <p style="color:green;">{{ message }}</p>
-                            </center>
-                </div>
-            {% endfor %}
-            <form method="POST" enctype="multipart/form-data" style="width:100%;">
-                {% csrf_token %}
+					{{ u_form|crispy }}
+					<br>
+					<a href="{% url 'password-reset' %}" class="txt2 bo1 m-l-5">	change password </a>
 
-                    <div class="row" style=" width:90%; ">
-                        <div class="col-6" style="height:500px; background-color:red;">
-                            <img class="rounded-circle mx-auto d-block" src="{{ user.profile.image.url }}" style="margin:auto;">
-                            <br>
-                            <center>
-                            {{ p_form|crispy }}
-                                </center>
-                        </div>
-
-                        <div class="col-6" >
-                            {{ u_form.username.label }}
-                            {{ u_form.username }}
-                            <br><br>
-                            {{ u_form.email.label }}
-                            {{ u_form.email }}
-                            <br>
-                            <a href="{% url 'password-reset' %}" class="txt2 bo1 m-l-5">	change password </a>
-                            <div class="form-group">
-                                <button class="btn btn-outline-info" type="submit">Update</button>
-                            </div>
-                        </div>
-                    </div>
-            </form>
-
-    </div>
-</div>
-
-
-
-{% endblock content %}
+					<button class="btn">Send</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</body>
+</html>
+{% endblock %}

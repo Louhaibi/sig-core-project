@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}   home  {% endblock %}
+
+{% block content %}
+{% csrf_token %}
+<html>
+  <head>
+
+
+    <meta name="keywords" content="Commencer vos projets&nbsp;des maintenant, Commencer">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <link rel="stylesheet" href="{% static 'site/nicepage.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'site/Accueil.css' %}" media="screen">
+    <script class="u-script" type="text/javascript" src="{% static 'site/jquery.js' %}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{% static 'site/nicepage.js' %}" defer=""></script>
+
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+        }
+    </script>
+
+  </head>
+  <body class="u-body">
+
+    <section class="u-align-left u-clearfix u-image u-shading u-section-1" id="carousel_656c" data-image-width="1620" data-image-height="1080">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-custom-font u-font-raleway u-text u-text-body-alt-color u-text-1">Commencer vos projets&nbsp;<br>des maintenant
+        </h1>
+        <div class="u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <div class="u-align-center u-container-style u-grey-80 u-list-item u-radius-50 u-repeater-item u-shape-round u-list-item-1">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <h3 class="u-text u-text-default u-text-2">
+                  <br>Nombre de projets:<br>
+                  <br>x<br>
+                  <br>
+                  <br>
+                  <br>
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="{% url 'projet:create-projet' %}" class="u-active-grey-40 u-border-2 u-border-grey-50 u-btn u-button-style u-grey-80 u-hover-grey-70 u-text-hover-white u-text-white u-btn-1">cRéer<span style="font-size: 1.125rem;"></span> projet
+        </a>
+        <h1 class="u-align-center u-custom-font u-font-raleway u-text u-text-3">Commencer</h1>
+      </div>
+    </section>
+    
+
+  </body>
+</html>
+  {% endblock %}

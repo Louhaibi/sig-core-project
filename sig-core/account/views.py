@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login, logout, update_session_auth
 from .decorators import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMessage, send_mail
 from django.contrib.auth.models import User
 from django.views import View
 from django.utils.encoding import force_bytes, force_text
@@ -13,17 +13,25 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
 from .utils import token_generator
+from django.conf import settings
 
 @login_required(login_url='/')
 def about(request):
     context = {}
-    return render(request, 'about.html', context)
+    return render(request, 'site/about.html', context)
 
 
 @login_required(login_url='/')
 def contact(request):
     context = {}
-    return render(request, 'contact.html', context)
+    # if request.method == "POST":
+    #     message = request.POST["message"]
+    #     send_mail('Contact Form',
+    #               message,
+    #               settings.EMAIL_HOST_USER,
+    #               ['xziko.louh@gmail.com'],
+    #               fail_silently=False)
+    return render(request, 'site/contact.html', context)
 
 
 @unauthenticated_user

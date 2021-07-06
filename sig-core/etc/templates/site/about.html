@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} about {% endblock %}
+
+{% block content %}
+{% csrf_token %}
+<html >
+  <head>
+
+
+    <link rel="stylesheet" href="{% static 'site/nicepage.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'site/About.css' %}" media="screen">
+    <script class="u-script" type="text/javascript" src="{% static 'site/jquery.js' %}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{% static 'site/nicepage.js' %}" defer=""></script>
+
+  </head>
+  <body class="u-body u-image" style="background-position: 50% 50%; background-image: url({% static 'site/images/pexels-photo-1797418.jpeg' %});">
+    <section class="u-align-center u-clearfix u-section-1" id="sec-76aa">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-group u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+              <br><br>
+            <h2 class="u-text u-text-1"> A propos de nous </h2>
+            <p class="u-text u-text-2">Paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id suscipit ex. Suspendisse rhoncus laoreet purus quis elementum. Phasellus sed efficitur dolor, et ultricies sapien. Quisque fringilla sit amet dolor commodo efficitur. Aliquam et sem odio. In ullamcorper nisi nunc, et molestie ipsum iaculis sit amet.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+  </body>
+</html>
+  {% endblock %}

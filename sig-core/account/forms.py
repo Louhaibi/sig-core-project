@@ -4,6 +4,7 @@ from django.forms.widgets import Input
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from .models import Profile
+from django.db import models
 
 
 class UserLoginForm(AuthenticationForm):
@@ -77,18 +78,16 @@ class UserUpdateForm(forms.ModelForm):
         fields = ['username', 'email']
         widgets = {
             "username": Input(attrs={
-                "id": "username",
-                "label": "username",
+
                 "type": "text",
-                "class": "input100",
+                "class": "field",
                 "placeholder": "Username",
                 "required": True
             }),
             "email": Input(attrs={
-                "id": "email",
-                "label": "email",
-                "type": "email",
-                "class": "input100",
+
+                "type": "text",
+                "class": "field",
                 "required": True,
                 "placeholder": "Email"
             }),
@@ -100,3 +99,7 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['image']
+
+
+
+
