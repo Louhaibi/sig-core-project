@@ -24,26 +24,26 @@
     <form method="POST" action="{% url 'account:contact' %}">
     {% csrf_token %}
         <div class="form" >
-       <div class="inputfield">
-          <label>Username</label>
-          <input name="username" type="text" class="input" value="{{ request.user }}" disabled="disabled">
-       </div>
+           <div class="inputfield">
+              <label>Username</label>
+              <input name="username" type="text" class="input" value="{{ request.user }}" disabled="disabled">
+           </div>
 
-        <div class="inputfield">
-          <label>Email </label>
-          <input name="email" type="text" class="input" value="{{ request.user.email }}" disabled="disabled">
-       </div>
+            <div class="inputfield">
+              <label>Email </label>
+              <input name="email" type="text" class="input" value="{{ request.user.email }}" disabled="disabled">
+           </div>
 
-      <div class="inputfield">
-          <label>Sujet</label>
-          <textarea name="subject" class="textarea"></textarea>
-       </div>
+          <div class="inputfield">
+              <label>Sujet</label>
+              <textarea name="subject" class="textarea"></textarea>
+           </div>
 
-      <div class="inputfield">
-        <input type="submit" value="Envoyer" class="btn">
-      </div>
-    </div>
-        </form>
+          <div class="inputfield">
+            <input type="submit" value="Envoyer" class="btn">
+          </div>
+        </div>
+    </form>
 </div>
 
 </body>

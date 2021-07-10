@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django_email_verification import urls as mail_urls
@@ -39,14 +39,14 @@ urlpatterns = [
           auth_views.PasswordResetDoneView.as_view(
               template_name='account/reset/password_reset_done.html'
           ),
-          name="password_reset_done"
+          name='password_reset_done'
       ),
     path(
           'password-reset-confirm/<uidb64>/<token>/',
           auth_views.PasswordResetConfirmView.as_view(
               template_name='account/reset/password_reset_confirm.html'
           ),
-          name="password_reset_confirm"
+          name='password_reset_confirm'
       ),
     path(
           'password-reset-complete/',
@@ -55,13 +55,14 @@ urlpatterns = [
           ),
           name='password_reset_complete'
       ),
+    #
+    # path('Profile/password_change_done/', auth_views.PasswordChangeDoneView.as_view(
+    #     template_name='account/profile/password_change_done.html'),
+    #     name='password_change_done'),
+    # path('Profile/password_change/', auth_views.PasswordChangeView.as_view(
+    #     template_name='account/profile/password_change.html'),
+    #     name='password_change'),
 
-    path('Profile/password_change_done/', auth_views.PasswordChangeDoneView.as_view(
-        template_name='account/profile/password_change_done.html'),
-        name='password_change_done'),
-    path('Profile/password_change/', auth_views.PasswordChangeView.as_view(
-        template_name='account/profile/password_change.html'),
-        name='password_change'),
 
 
 

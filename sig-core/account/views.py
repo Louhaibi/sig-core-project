@@ -15,6 +15,7 @@ from django.urls import reverse
 from .utils import token_generator
 from django.conf import settings
 
+
 @login_required(login_url='/')
 def about(request):
     context = {}
@@ -91,7 +92,7 @@ def registerpage(request):
             )
             email.send(fail_silently=False)
             username = form.cleaned_data.get('username')
-            messages.success(request, 'Account was created for ' + username)
+            messages.success(request, 'Account was created for ' + username + ' please verify your email adress')
             return redirect("account:login")
 
     context = {'form': form}
@@ -146,16 +147,16 @@ def Profile(request):
 @login_required(login_url='/')
 def change_password(request):
     if request.method == 'POST':
-        form = PasswordChangeForm(request.user, request.POST)
+        form = PasswordChangeForm(data=request.POST, user=request.user)
         if form.is_valid():
-            user = form.save()
-            update_session_auth_hash(request, user)
+            form.save()
+            update_session_auth_hash(request, form.user)
             messages.success(request, 'Your password was successfully updated!')
             return redirect('/Profile/')
         else:
             messages.error(request, 'Please correct the error below.')
     else:
-        form = PasswordChangeForm(request.user)
+        form = PasswordChangeForm(user=request.user)
 
     context = {'form': form}
-    return render(request, 'account/profile/change_password.html', context)
+    return render(request, 'account/profile/password_change.html', context)

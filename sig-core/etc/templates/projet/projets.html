@@ -35,7 +35,7 @@
 		<tbody>
 		{% for projet in projet_list %}
 			<tr>
-				<td><a href="{% url 'projet:update-projet' pk=projet.pk %}">{{ projet.intitule }}</a></td>
+				<td><a href="{% url 'projet:update-projet' pk=projet.pk %}" style="text-decoration: none;">{{ projet.intitule }}</a></td>
 				<td>
 					{% for commune in projet.communes.all %}
 					{{ commune.nom }},

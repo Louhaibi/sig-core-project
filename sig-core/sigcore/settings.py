@@ -162,7 +162,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 
-LOGIN_URL = ' login '
+LOGIN_URL = "account:login"
 
 
 
@@ -182,6 +182,9 @@ GRAPH_MODELS = {
   'group_models': True,
 }
 
+# GRAPH_MODELS = {
+#   'app_labels': ["account", "projet"],
+# }
 
 
 

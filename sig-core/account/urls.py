@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import loginpage, Profile, registerpage, logoutUser, about, contact, VerificationView
+from .views import loginpage, Profile, registerpage, logoutUser, about, contact, VerificationView, change_password
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
@@ -16,8 +16,8 @@ urlpatterns = [
     path('about/', about, name='about'),
     path('contact/', contact, name='contact'),
     path('Profile/', Profile, name="Profile-page"),
-    path('activate/<uidb64>/<token>', VerificationView.as_view(), name="activate")
-
+    path('activate/<uidb64>/<token>', VerificationView.as_view(), name="activate"),
+    path('Profile/password_change/', change_password, name='password_change')
 
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

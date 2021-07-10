@@ -22,6 +22,7 @@
     <div class="title">
       Modifier le Projet
     </div>
+    <form method="POST">
     <div class="form">
        {% csrf_token %}
         <div class="position-relative">
@@ -35,9 +36,10 @@
         {{ form|crispy }}
         <br>
       <div class="inputfield">
-        <input type="submit" value="Save" class="btn">
+        <input type="submit" value="Save" class="btn" href="{% url 'projet:list-projet' %}>
       </div>
     </div>
+        </form>
 </div>
 
 </body>

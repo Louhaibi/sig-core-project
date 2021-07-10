@@ -20,14 +20,16 @@
     <div class="title">
       Créer Projet
     </div>
+    <form method="POST">
     <div class="form">
        {% csrf_token %}
         {{ form|crispy }}
         <br>
       <div class="inputfield">
-        <input type="submit" value="Save" class="btn">
+        <input type="submit" value="Save" class="btn" href="{% url 'projet:list-projet' %}">
       </div>
     </div>
+        </form>
 </div>
 
 </body>

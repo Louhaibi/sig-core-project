@@ -14,30 +14,37 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
 </head>
 <body>
-	<form method="POST">
-		{% for message in messages %}
-					<center>
-						<p style="color:red">{{ message }}</p>
-					</center>
-				{% endfor %}
-		{% csrf_token %}	
+
+	<form method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+
+
 		<div class="container">
+
 			<div class="contact-box">
 				<div class="left">
 					<img class="rounded-circle mx-auto d-block" src="{{ user.profile.image.url }}" style="margin:auto; height:200px;">
 					<br>
-                    <center>
-                    {{ p_form.as_p }}
-                    </center>
+
+                    {{ p_form|crispy }}
+
 				</div>
 				<div class="right">
 					<h2>Informations personnelles</h2>
 
 					{{ u_form|crispy }}
-					<br>
-					<a href="{% url 'password-reset' %}" class="txt2 bo1 m-l-5">	change password </a>
 
+					<a href="{% url 'account:password_change' %}" class="txt2 bo1 m-l-5">	change password </a>
+					<br>
+					<br>
 					<button class="btn">Send</button>
+					<hr>
+
+					{% for message in messages %}
+					<center>
+						<p style="color:#28A853;">{{ message }}</p>
+					</center>
+				{% endfor %}
 				</div>
 			</div>
 		</div>
