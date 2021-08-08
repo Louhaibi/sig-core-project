@@ -21,8 +21,16 @@
     <div class="title">
       Contactez-nous
     </div>
+
+    {% if message %}
+            <div class="alert alert-success" role="alert">
+                Merci {{ request.user }},
+                votre message a été envoyé
+            </div>
+    {% endif %}
     <form method="POST" action="{% url 'account:contact' %}">
     {% csrf_token %}
+
         <div class="form" >
            <div class="inputfield">
               <label>Username</label>

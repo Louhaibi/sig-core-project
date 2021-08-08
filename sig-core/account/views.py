@@ -24,15 +24,22 @@ def about(request):
 
 @login_required(login_url='/')
 def contact(request):
-    context = {}
-    # if request.method == "POST":
-    #     message = request.POST["message"]
-    #     send_mail('Contact Form',
-    #               message,
-    #               settings.EMAIL_HOST_USER,
-    #               ['xziko.louh@gmail.com'],
-    #               fail_silently=False)
-    return render(request, 'site/contact.html', context)
+    if request.method == "POST":
+        # contact_username = request.POST["username"]
+        # contact_email = request.POST['email']
+        message = request.POST['subject']
+        send_mail(
+            request.user.email,
+            message,
+            settings.EMAIL_HOST_USER,
+            ['sigcore.contact@gmail.com'],
+            fail_silently=False,
+        )
+        return render(request, 'site/contact.html', {'message': message})
+
+    else:
+        context = {}
+        return render(request, 'site/contact.html', context)
 
 
 @unauthenticated_user

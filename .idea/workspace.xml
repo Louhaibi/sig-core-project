@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77927215-3ac5-4969-b13e-1d26770edef4" name="Default Changelist" comment="new edits">
-      <change afterPath="$PROJECT_DIR$/media/profile_pics/pic_ntNxKRm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/profile_pics/pic_ImoHyJM.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/profile_pics/pic_f0aTJcs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/profile_pics/pic_fiqX0ji.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +53,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
-    <property name="last_opened_file_path" value="$USER_HOME$/PycharmProjects/test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mysite" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
